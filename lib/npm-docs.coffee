@@ -13,15 +13,15 @@ module.exports =
       return unless protocol is 'npm-docs:'
       new NpmDocsView(host)
 
-    atom.workspaceView.command "npm-docs:open", =>
+    atom.views.getView(atom.workspace).command "npm-docs:open", =>
       open("https://npmjs.org/package/#{@getSelection()}")
 
-    atom.workspaceView.command "npm-docs:homepage", =>
+    atom.views.getView(atom.workspace).command "npm-docs:homepage", =>
       @search (err, json, selection) ->
         if (err) then throw err
         open(json.homepage)
 
-    atom.workspaceView.command "npm-docs:readme", =>
+    atom.views.getView(atom.workspace).command "npm-docs:readme", =>
       @search (err, json, selection) ->
         if (err) then throw err
         markdown = json.readme
