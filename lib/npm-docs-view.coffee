@@ -1,4 +1,4 @@
-{ScrollView} = require 'atom-space-pen-views'
+{ScrollView} = require 'atom'
 
 module.exports =
 class NpmDocsView extends ScrollView
